@@ -4,23 +4,22 @@ using UnityEngine.EventSystems;
 
 public class hoop_script : MonoBehaviour
 {
-    private GameObject score_sys;
+    public int score;
+    public float time_to_die;
+    GameObject score_sys;
 
-    public float time_to_die; //time until the hoop is destoyed
-    public int score; //score amout
-
-    private void Awake() //when object's script created find the game's score component
+    private void Awake()
     {
         score_sys = GameObject.FindGameObjectWithTag("ScoreSystem");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) 
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("pole")) // if trigger collider touches pole collider
+        if (collision.CompareTag("pole"))
         {
-            collision.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Play(); //play particle system
-            score_sys.GetComponent<score_system>().AddScore(score); //add score
-            Destroy(this.gameObject,time_to_die); //destoy the hoop
+            collision.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+            score_sys.GetComponent<score_system>().AddScore(score);
+            Destroy(this.gameObject,time_to_die);
         }
     }
 }

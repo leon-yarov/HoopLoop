@@ -3,18 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class restart_script : MonoBehaviour
 {
-    public void Restart() //restart current scene
+    public void Restart()
     {
-        Time.timeScale = 1; //reset time scale, (restarting the scene while the game is paused will keep the timeScale value of 0)
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void StartGame(Scene scene) //start with passed scene name
+    public void StartGame(Scene scene)
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(scene.name);
     }
-    public void PauseToggle() //Toggle pause
+    public void PauseToggle()
     {
         if (Time.timeScale == 1)
             Time.timeScale = 0;
