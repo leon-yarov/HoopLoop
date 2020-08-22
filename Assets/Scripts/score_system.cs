@@ -7,15 +7,11 @@ using UnityEngine.UI;
 
 public class score_system : MonoBehaviour
 {
-    private int score = 0;
-    public Text score_text;
-    public Text score_text_shadow;
-    public int GetScore()
-    {
-        return score;
-    }
+    private int score = 0; //game's current score
 
-    public void AddScore(int value)
+    public Text score_text; //get the UI of score
+    public Text score_text_shadow; //for decoration
+    public void AddScore(int value) //add score by value passed
     {
         score += value;
         score_text.text = "SCORE: " + score;
